@@ -11059,7 +11059,7 @@ input.header-mobile__search-control:focus {
   min-width: 240px;
   border: solid 1px #e4e7ed;
   position: absolute;
-  left: 100%;
+  right: 100%;
   top: -1px;
   margin: 0;
   padding: 0;

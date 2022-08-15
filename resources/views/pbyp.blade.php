@@ -1,98 +1,98 @@
 @extends('layouts.app')
+@section('pbyp','active')
 @section('content')
     @if($resultData)
-
     @foreach($resultData as $resultItem)
 
-    <div class="alc-event-header alc-event-header--layout-1">
-        <div class="alc-event-header__top">
-            <div class="container">
-                <h6 class="title" id='competition'>{{$resultItem->competition}}</h6>
-                <span class="subtitle" id='subtitle'>{{$resultItem->play_date}}</span>
-            </div>
-        </div>
-        <div class="alc-event-header__content">
-            <div class="container">
-                <div class="alc-event-header__content-inner">
-    
-                    <!-- Competitors -->
-                    <div class="alc-event-competitors">
-                        <!-- Team #1 -->
-                        <div id='in_class' class="alc-event-competitors__item alc-event-team @if($resultItem->score_in>$resultItem->score_out)alc-event-team--winner @endif">
-                            <div class="alc-event-team__details">
-                                <h4 class="alc-event-team__name">Alchemists</h4>
-                                <div class="alc-event-team__info">Elric Bros School</div>
-                            </div>
-                            <figure class="alc-event-team__logo">
-                                <img src="assets/images/samples/logos/alchemists-n.png" alt="">
-                            </figure>
-                            <div class="alc-event-team__score-wrap">
-                                <div class="alc-event-team__score" id="score_in">{{$resultItem->score_in}}</div>
-                            </div>
-                        </div>
-                        <!-- Team #1 / End -->
-    
-                        <!-- Team #2 -->
-                        <div id='out_class' class="alc-event-competitors__item alc-event-team @if($resultItem->score_in<$resultItem->score_out)alc-event-team--winner @endif">
-                            <div class="alc-event-team__details">
-                                <h4 class="alc-event-team__name">{{$resultItem->versus}}</h4>
-                                <div class="alc-event-team__info">{{$resultItem->company}}</div>
-                            </div>
-                            <figure class="alc-event-team__logo">
-                                <img src="uploads/{{$resultItem->logopath}}" alt="">
-                            </figure>
-                            <div class="alc-event-team__score-wrap">
-                                <div class="alc-event-team__score" id="score_out">{{$resultItem->score_out}}</div>
-                            </div>
-                        </div>
-                        <!-- Team #2 / End -->
-    
-                        <!-- Scoreboard -->
-                        <div class="alc-event-competitors__status">
-                            <div class="table-responsive">
-                                <table class="table table__cell-center table-wrap-bordered table-thead-color">
-                                    <thead>
-                                        <tr>
-                                            <th>Scoreboard</th>
-                                            <th>1</th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th>T</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='result_table'>
-                                        <tr>
-                                            <th>Alchemists</th>
-                                            <td>{{$resultItem->first_score_in}}</td>
-                                            <td>{{$resultItem->second_score_in}}</td>
-                                            <td>{{$resultItem->third_score_in}}</td>
-                                            <td>{{$resultItem->fourth_score_in}}</td>
-                                            <td>{{$resultItem->score_in}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>{{$resultItem->versus}}</th>
-                                            <td>{{$resultItem->first_score_out}}</td>
-                                            <td>{{$resultItem->second_score_out}}</td>
-                                            <td>{{$resultItem->third_score_out}}</td>
-                                            <td>{{$resultItem->fourth_score_out}}</td>
-                                            <td>{{$resultItem->score_out}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- Scoreboard / End -->
-    
-                    </div>
-                    <!-- Competitors / End -->
-    
+        <div class="alc-event-header alc-event-header--layout-1">
+            <div class="alc-event-header__top">
+                <div class="container">
+                    <h6 class="title" id='competition'>{{$resultItem->competition}}</h6>
+                    <span class="subtitle" id='subtitle'>{{$resultItem->play_date}}</span>
                 </div>
             </div>
-            <div class="alc-event-header__content-team-decor alc-event-header__content-team-decor--color1"></div>
-            <div class="alc-event-header__content-team-decor alc-event-header__content-team-decor--color2"></div>
+            <div class="alc-event-header__content">
+                <div class="container">
+                    <div class="alc-event-header__content-inner">
+        
+                        <!-- Competitors -->
+                        <div class="alc-event-competitors">
+                            <!-- Team #1 -->
+                            <div id='in_class' class="alc-event-competitors__item alc-event-team @if($resultItem->score_in>$resultItem->score_out)alc-event-team--winner @endif">
+                                <div class="alc-event-team__details">
+                                    <h4 class="alc-event-team__name">Alchemists</h4>
+                                    <div class="alc-event-team__info">Elric Bros School</div>
+                                </div>
+                                <figure class="alc-event-team__logo">
+                                    <img src="assets/images/samples/logos/alchemists-n.png" alt="">
+                                </figure>
+                                <div class="alc-event-team__score-wrap">
+                                    <div class="alc-event-team__score" id="score_in">{{$resultItem->score_in}}</div>
+                                </div>
+                            </div>
+                            <!-- Team #1 / End -->
+        
+                            <!-- Team #2 -->
+                            <div id='out_class' class="alc-event-competitors__item alc-event-team @if($resultItem->score_in<$resultItem->score_out)alc-event-team--winner @endif">
+                                <div class="alc-event-team__details">
+                                    <h4 class="alc-event-team__name">{{$resultItem->versus}}</h4>
+                                    <div class="alc-event-team__info">{{$resultItem->company}}</div>
+                                </div>
+                                <figure class="alc-event-team__logo">
+                                    <img src="uploads/{{$resultItem->logopath}}" alt="">
+                                </figure>
+                                <div class="alc-event-team__score-wrap">
+                                    <div class="alc-event-team__score" id="score_out">{{$resultItem->score_out}}</div>
+                                </div>
+                            </div>
+                            <!-- Team #2 / End -->
+        
+                            <!-- Scoreboard -->
+                            <div class="alc-event-competitors__status">
+                                <div class="table-responsive">
+                                    <table class="table table__cell-center table-wrap-bordered table-thead-color">
+                                        <thead>
+                                            <tr>
+                                                <th>Scoreboard</th>
+                                                <th>1</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>4</th>
+                                                <th>T</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id='result_table'>
+                                            <tr>
+                                                <th>Alchemists</th>
+                                                <td>{{$resultItem->first_score_in}}</td>
+                                                <td>{{$resultItem->second_score_in}}</td>
+                                                <td>{{$resultItem->third_score_in}}</td>
+                                                <td>{{$resultItem->fourth_score_in}}</td>
+                                                <td>{{$resultItem->score_in}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>{{$resultItem->versus}}</th>
+                                                <td>{{$resultItem->first_score_out}}</td>
+                                                <td>{{$resultItem->second_score_out}}</td>
+                                                <td>{{$resultItem->third_score_out}}</td>
+                                                <td>{{$resultItem->fourth_score_out}}</td>
+                                                <td>{{$resultItem->score_out}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Scoreboard / End -->
+        
+                        </div>
+                        <!-- Competitors / End -->
+        
+                    </div>
+                </div>
+                <div class="alc-event-header__content-team-decor alc-event-header__content-team-decor--color1"></div>
+                <div class="alc-event-header__content-team-decor alc-event-header__content-team-decor--color2"></div>
+            </div>
         </div>
-    </div>
    
     @endforeach
     @endif

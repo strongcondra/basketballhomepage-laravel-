@@ -22,7 +22,7 @@
 
 		
 		<!-- Team Pages Filter -->
-		<nav class="content-filter">
+		<!-- <nav class="content-filter">
 			<div class="container">
 				<a href="#" class="content-filter__toggle"></a>
 				<ul class="content-filter__list">
@@ -31,7 +31,7 @@
 					<li class="content-filter__item @yield('schedule')"><a href="{{route('schedule')}}" class="content-filter__link"><small>The Team</small>Schedule</a></li>
 				</ul>
 			</div>
-		</nav>
+		</nav> -->
 		<!-- Team Pages Filter / End -->
 
         @yield('rosterContent')

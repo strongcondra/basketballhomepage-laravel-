@@ -1,6 +1,6 @@
 @extends('team.app')
-@section('subtitle','Schedule')
-@section('schedule','content-filter__item--active')
+@section('subtitle','League')
+@section('competitions', 'active')
 @section('rosterContent')
     <div class="site-content">
         <div class="container">

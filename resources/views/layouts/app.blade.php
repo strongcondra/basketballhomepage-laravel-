@@ -70,6 +70,17 @@
 
                             <!-- Account Navigation -->
                             <ul class="nav-account">
+                            <!-- Social Links -->
+                                <li class="nav-account__item">
+                                    <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li class="nav-account__item">
+                                    <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li class="nav-account__item">
+                                    <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                </li>
+                            <!-- Social Links / End -->
                                 @if (Route::has('login'))
                                         @auth
                                             <li class="nav-account__item "><a href="#">{{ Auth::user()->name }} </a></li>
@@ -157,7 +168,7 @@
                                         @endif
                                     @endauth
                                     <li class="@yield('home')"><a href="{{route('home')}}">Home</a></li>
-                                    <li class="@yield('team')"><a href="#">The Team</a>
+                                    <!-- <li class="@yield('team')"><a href="#">The Team</a>
                                         <ul class="main-nav__sub">
                                             <li><a href="{{route('roster')}}">Team</a>
                                                 <ul class="main-nav__sub-2">
@@ -173,30 +184,66 @@
                                             </li>
                                             <li><a href="{{route('tournament')}}">Tournament</a></li>
                                         </ul>
+                                    </li> -->
+                                    <li class="@yield('pbyp')"><a href="{{route('pbyp')}}">Events</a></li>
+                                    <li class="@yield('roster')"><a href="{{route('roster')}}">National Teams</a></li>
+
+                                    <li class="@yield('competitions')"><a href="#">Competitions</a>
+                                        <ul class="main-nav__sub">
+                                            <li><a href="{{route('schedule')}}">Leagues</a>
+                                           </li>
+                                            <li><a href="{{route('tournament')}}">Tournaments</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="@yield('news')"><a href="{{route('news')}}">News</a></li>
-                                </ul>
-            
-                                <!-- Social Links -->
-                                <ul class="social-links social-links--inline social-links--main-nav">
-            
-                                    <li class="social-links__item">
-                                        <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                    <li class="@yield('technical')"><a href="#">Technical</a>
+                                        <ul class="main-nav__sub">
+                                            <li><a href="">Coaches</a>
+                                           </li>
+                                            <li><a href="">Table officials</a>
+                                            </li>
+                                            <li><a href="">Referees</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="social-links__item">
-                                        <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li class="social-links__item">
-                                        <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
-                                    </li>
-            
-                                </ul>
-                                <!-- Social Links / End -->
-            
+                                    <li class="active"><a href="#"><i class='fas fa-bars fa-fw' style="font-size:20px"></i></a>
+                                        <ul class="main-nav__sub">
+                                            <li><a href="">Constituent</a></li>
+                                            <li><a href="">Infrastructure</a>
+                                                <ul class="main-nav__sub-2">
+                                                    <li><a href="">league Centers</a></li>
+                                                    <li><a href="">Training Centers</a></li>
+                                                    <li><a href="">Schools</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">News</a></li>
+                                            <li><a href="">Gallery</a></li>
+                                            
+                                            <li><a href="">Partners</a>
+                                                <ul class="main-nav__sub-2">
+                                                    <li><a href="">Government</a></li>
+                                                    <li><a href="">Developement Partners</a></li>
+                                                    <li><a href="">Corporate</a></li>
+                                                    <li><a href="">Ambassadors</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="event-overview.html">Governance</a>
+                                                <ul class="main-nav__sub-2">
+                                                    <li class=""><a href="">Board</a></li>
+                                                    <li class=""><a href="">Commissions</a></li>
+                                                    <li class=""><a href="">Committee</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">About Us</a>
+                                                <ul class="main-nav__sub-2">
+                                                    <li class=""><a href="">Executives</a></li>
+                                                    <li class=""><a href="">Contact Details</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+								    </li>
+                                </ul>           
                                 <!-- Pushy Panel Toggle -->
-                                <a href="#" class="pushy-panel__toggle">
-                                    <span class="pushy-panel__line"></span>
-                                </a>
                                 <!-- Pushy Panel Toggle / Eng -->
                             </nav>
                             <!-- Main Navigation / End -->
@@ -209,116 +256,7 @@
             <!-- Header / End -->
             
             <!-- Pushy Panel -->
-            <aside class="pushy-panel ">
-                <div class="pushy-panel__inner">
-                    <header class="pushy-panel__header">
-                        <div class="pushy-panel__logo">
-                            <a href="{{route('home')}}"><img src="stuff/images/logo.png" srcset="stuff/images/logo@2x.png 2x" alt="Alchemists"></a>
-                        </div>
-                    </header>
-                    <div class="pushy-panel__content">
-            
-                        <!-- Widget: Posts -->
-                        <aside class="widget widget--side-panel">
-                            <div class="widget__content">
-                                <ul class="posts posts--simple-list posts--simple-list--lg">
-                                    <li class="posts__item posts__item--category-1">
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The new eco friendly stadium won a Leafy Award in 2016</a></h6>
-                                            <time datetime="2017-08-23" class="posts__date">August 23rd, 2018</time>
-                                            <div class="posts__excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                            </div>
-                                        </div>
-                                        <footer class="posts__footer card__footer">
-                                            <div class="post-author">
-                                                <figure class="post-author__avatar">
-                                                    <img src="stuff/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                                </figure>
-                                                <div class="post-author__info">
-                                                    <h4 class="post-author__name">James Spiegel</h4>
-                                                </div>
-                                            </div>
-                                            <ul class="post__meta meta">
-                                                <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
-                                                <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                            </ul>
-                                        </footer>
-                                    </li>
-                                    <li class="posts__item posts__item--category-2">
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">Injuries</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">Mark Johnson has a Tibia Fracture and is gonna be out</a></h6>
-                                            <time datetime="2017-08-23" class="posts__date">August 23rd, 2018</time>
-                                            <div class="posts__excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                            </div>
-                                        </div>
-                                        <footer class="posts__footer card__footer">
-                                            <div class="post-author">
-                                                <figure class="post-author__avatar">
-                                                    <img src="stuff/images/samples/avatar-2.jpg" alt="Post Author Avatar">
-                                                </figure>
-                                                <div class="post-author__info">
-                                                    <h4 class="post-author__name">Jessica Hoops</h4>
-                                                </div>
-                                            </div>
-                                            <ul class="post__meta meta">
-                                                <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
-                                                <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                            </ul>
-                                        </footer>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
-                        <!-- Widget: Posts / End -->
-            
-                        <!-- Widget: Tag Cloud -->
-                        <aside class="widget widget--side-panel widget-tagcloud">
-                            <div class="widget__title">
-                                <h4>Tag Cloud</h4>
-                            </div>
-                            <div class="widget__content">
-                                <div class="tagcloud">
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PLAYOFFS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">ALCHEMISTS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">INJURIES</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">TEAM</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">INCORPORATIONS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">UNIFORMS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">CHAMPIONS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PROFESSIONAL</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">COACH</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">STADIUM</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">NEWS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PLAYERS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">WOMEN DIVISION</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">AWARDS</a>
-                                </div>
-                            </div>
-                        </aside>
-                        <!-- Widget: Tag Cloud / End -->
-            
-                        <!-- Widget: Banner -->
-                        <aside class="widget widget--side-panel widget-banner">
-                            <div class="widget__content">
-                                <figure class="widget-banner__img">
-                                    <a href="#"><img src="assets/images/samples/banner.jpg" alt="Banner"></a>
-                                </figure>
-                            </div>
-                        </aside>
-                        <!-- Widget: Banner / End -->
-            
-                    </div>
-                    <a href="#" class="pushy-panel__back-btn"></a>
-                </div>
-            </aside>
+
             <!-- Pushy Panel / End -->
 
 

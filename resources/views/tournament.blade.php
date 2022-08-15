@@ -1,23 +1,7 @@
-@extends('layouts.app')
-@section('team','active')
-@section('content')
-		<!-- Page Heading
-		================================================== -->
-		<div class="page-heading">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 offset-md-1">
-                        <h1 class="page-heading__title">Tournament</h1>
-						<ol class="page-heading__breadcrumb breadcrumb">
-							<li class="breadcrumb-item"><a href="{{route('tournament')}}">Team</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Tournament</li>
-						</ol>
-    
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Page Heading / End -->
+@extends('team.app')
+@section('subtitle','Tournament')
+@section('competitions', 'active')
+@section('rosterContent')
 
 		<!-- Content
 		================================================== -->

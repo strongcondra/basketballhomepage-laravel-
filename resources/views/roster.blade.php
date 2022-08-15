@@ -1,6 +1,6 @@
 @extends('team.app')
-@section('subtitle','Roster')
-@section('roster','content-filter__item--active')
+@section('roster', 'active')
+@section('subtitle','Events')
 @section('rosterContent')
     <div class="site-content">
         <div class="container">
