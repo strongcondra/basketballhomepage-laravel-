@@ -64,7 +64,7 @@
 							<div class="card__content">
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 								<!-- Register Form -->
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}" onsubmit="return validSignup()" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
 										<label for="name">Your name</label>
@@ -133,7 +133,7 @@
                                     <div class='row'>
                                         <div class='col-md-6'>
                                             
-                                                <a class="btn btn-outline-dark btn-block"  href="{{ route('login') }}">{{ __('Login?') }}</a>
+                                                <a class="btn btn-outline-dark btn-block"  href="{{ route('login') }}">{{ __('Login') }}</a>
                                                 
                                         </div>
                                         <div class='col-md-6'>
@@ -143,11 +143,7 @@
                                         </div>
                                     </div>
 								</form>
-								<!-- Register Form / End -->
-		
-				
-
-								
+								<!-- Register Form / End -->								
 							</div>
 						</div>
 						<!-- Register / End -->
@@ -177,6 +173,7 @@
 <script src="{{asset('country/countrypicker.min.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{asset('stuff/js/stuff.js')}}"></script>
 
 </body>
 </html>

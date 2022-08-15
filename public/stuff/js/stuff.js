@@ -142,3 +142,26 @@ function removeMember(no){
     }
     );
 }
+function validSignup(){
+    if ($('#firstname').val()=="" ) {
+        alert('Please fill the first name')
+        return false;
+    }
+    if ($('#lastname').val()=="" ) {
+        alert('Please fill the last name')
+        return false;
+    }
+    if ($('#address').val()=="" ) {
+        alert('Please fill the last address')
+        return false;
+    }
+    if ($('#state').val()=="" ) {
+        alert('Please fill the state')
+        return false;
+    }
+    if ($('#zip').val()=="" ) {
+        alert('Please fill the zip')
+        return false;
+    }
+    return true; 
+}

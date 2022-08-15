@@ -84,10 +84,10 @@
 									</div>
 									<div class="row">
 										<div class="col-md-6">
-											<button class="btn btn-facebook btn-icon btn-block"><i class="fab fa-facebook"></i> Sign In via Facebook</button>
+											<a class="btn btn-facebook btn-icon btn-block" href="{{route('register')}}"> Sign UP</a>
 										</div>
 										<div class="col-md-6">
-											<button class="btn btn-twitter btn-icon btn-block"><i class="fab fa-twitter"></i> Sign in via Twitter</button>
+											<a class="btn btn-twitter btn-icon btn-block" href="{{route('home')}}">Back To Homepage</a>
 										</div>
 									</div>
 								</form>

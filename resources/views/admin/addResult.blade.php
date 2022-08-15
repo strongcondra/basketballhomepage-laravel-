@@ -145,7 +145,7 @@
                     </div>
                     <!-- Billing Details / End -->
                     <div class="place-order">
-                        <input type="submit" class="btn btn-primary btn-lg btn-block" name="insertSchedule" id="insertSchedule" value="Add Schedule!">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" name="insertSchedule" id="insertSchedule" value="Add Result!">
                     </div>
                     </form>
                 </div>

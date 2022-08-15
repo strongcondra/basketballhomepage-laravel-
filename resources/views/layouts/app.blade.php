@@ -8,7 +8,7 @@
         <meta name="author" content="Dan Fisher">
         <meta name="keywords" content="sports club news HTML template">
 
-        <title>{{ config('app.name', 'Alchemists Basketball Club &amp; Sports News HTML Template') }}</title>
+        <title>Ghana Basketball Site</title>
         <!-- Favicons
         ================================================== -->
         <link rel="shortcut icon" href="{{asset('stuff/images/basketball/favicons/favicon.ico')}}">
@@ -86,7 +86,7 @@
                                             <li class="nav-account__item "><a href="#">{{ Auth::user()->name }} </a></li>
                                             <li class="nav-account__item "><a href="{{ route('logout') }}">Logout</a></li>
                                             @else
-                                            <li class="nav-account__item "><a href="{{ route('login') }}">LOGIN</a></li>
+                                                <li class="nav-account__item "><a href="{{ route('login') }}">LOGIN</a></li>
                                             @if (Route::has('register'))
                                                 <li class="nav-account__item "><a href="{{ route('register') }}">REGISTER</a></li>
                                             @endif
