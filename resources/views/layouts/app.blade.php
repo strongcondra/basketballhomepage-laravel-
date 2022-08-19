@@ -32,7 +32,10 @@
         <link href="{{asset('stuff/vendor/slick/slick.css')}}" rel="stylesheet">
 
         <!-- Template CSS-->
-        <link href="{{asset('stuff/css/style-basketball.css')}}" rel="stylesheet">
+        @if(session('mode')=='light')<link href="{{asset('stuff/css/style-basketball.css')}}" rel="stylesheet">
+        @else <link href="{{asset('stuff/css/style-basketball-dark.css')}}" rel="stylesheet">
+        @endif
+        <!-- <link href="{{asset('stuff/css/style-basketball-dark.css')}}" rel="stylesheet"> -->
 
         <!-- Custom CSS-->
         <link href="{{asset('stuff/css/custom.css')}}" rel="stylesheet">
@@ -41,7 +44,12 @@
         <!-- Scripts -->
         <link rel="stylesheet" href="{{asset('country/dependancies/bootstrap-select-1.12.4/dist/css/bootstrap-select.min.css')}}">
 
+
+
+
+        
     </head>
+
     <body data-template="template-basketball">
         <div class="clearfix site-wrapper">
             <div class="site-overlay"></div>
@@ -68,8 +76,16 @@
                     <div class="container">
                         <div class="header__top-bar-inner">
 
+
                             <!-- Account Navigation -->
                             <ul class="nav-account">
+                                <li class="nav-account__item"><a href="#">Layouts</a>
+                                    <ul class="main-nav__sub">
+                                        <li><a href="{{route('changeMode', 'dark')}}">Dark </a></li>
+                                        <li><a href="{{route('changeMode', 'light')}}">Light</a></li>
+                                    </ul>
+                                </li>
+
                             <!-- Social Links -->
                                 <li class="nav-account__item">
                                     <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook"></i></a>
@@ -81,17 +97,10 @@
                                     <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
                                 </li>
                             <!-- Social Links / End -->
-                                @if (Route::has('login'))
                                         @auth
                                             <li class="nav-account__item "><a href="#">{{ Auth::user()->name }} </a></li>
                                             <li class="nav-account__item "><a href="{{ route('logout') }}">Logout</a></li>
-                                            @else
-                                                <li class="nav-account__item "><a href="{{ route('login') }}">LOGIN</a></li>
-                                            @if (Route::has('register'))
-                                                <li class="nav-account__item "><a href="{{ route('register') }}">REGISTER</a></li>
-                                            @endif
                                         @endauth
-                                @endif
                            </ul>
                             <!-- Account Navigation / End -->
             
@@ -147,7 +156,7 @@
                             <nav class="clearfix main-nav">
                                 <ul class="main-nav__list">
                                     @auth
-                                        @if (Auth::user()->permission == 1)                                           
+                                        @if (Auth::user()->permission == 2)                                           
                                             <li class=""><a href="#">Add &nbsp;Items</a>
                                                 <ul class="main-nav__sub">
                                                     <li><a href="">Add &nbsp; Basic &nbsp; Data</a>
@@ -198,7 +207,7 @@
                                     </li>
                                     <li class="@yield('technical')"><a href="#">Technical</a>
                                         <ul class="main-nav__sub">
-                                            <li><a href="">Coaches</a>
+                                            <li><a href="{{route('admin')}}">Coaches</a>
                                            </li>
                                             <li><a href="">Table officials</a>
                                             </li>
@@ -478,6 +487,9 @@
         <script src="{{asset('country/countrypicker.min.js')}}"></script>
         <script src="{{asset('stuff/js/stuff.js')}}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+
+
+        <!-- END PAGE LEVEL SCRIPTS -->
         <script>
             var $imageupload = $('.imageupload');
             $imageupload.imageupload({ imgSrc: "" });

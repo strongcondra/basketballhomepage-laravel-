@@ -1,3 +1,22 @@
+
+var realData=[]
+$(document).ready(function() {
+    $('#tree_2').on('changed.jstree', function (e, data) {
+        selectedData=data.selected
+        console.log(data.selected)
+        realData=[]
+        for(var i=0; i<selectedData.length; i++){
+            splitArray=selectedData[i].split("_")
+            realData[i]=splitArray[1];
+        }
+        console.log(realData)
+        var objNode = data.instance.get_node(data.selected);
+        var note;
+        note = 'Selected Node Data(Id: <strong>' + objNode.id + '</strong>, Name: <strong>' + objNode.text + '</strong>)'; e = 'Selected Category(Id: <strong>' + objNode.id + '</strong>, Name: <strong id="api-data" data-parent="' + objNode.parent + '" data-id="' + objNode.id + '">' + objNode.text + '</strong>)';
+    
+       console.log(note)
+    });
+})
 function changeDate(){
     console.log($("#pbypDate").val())
     $.post("/changePbyp",
@@ -151,17 +170,62 @@ function validSignup(){
         alert('Please fill the last name')
         return false;
     }
-    if ($('#address').val()=="" ) {
-        alert('Please fill the last address')
-        return false;
-    }
-    if ($('#state').val()=="" ) {
-        alert('Please fill the state')
-        return false;
-    }
-    if ($('#zip').val()=="" ) {
-        alert('Please fill the zip')
-        return false;
-    }
+    // if ($('#address').val()=="" ) {
+    //     alert('Please fill the last address')
+    //     return false;
+    // }
+    // if ($('#state').val()=="" ) {
+    //     alert('Please fill the state')
+    //     return false;
+    // }
+    // if ($('#zip').val()=="" ) {
+    //     alert('Please fill the zip')
+    //     return false;
+    // }
     return true; 
+}
+function createWindow(){
+    $.post("/createWindow",
+    {
+      _token: $('#_token').val(),
+    },
+    function(data, status){
+    });    
+}
+function changePermission(id){
+    console.log(id)
+    console.log($('#'+id).val())
+    $.post("/changePermission",
+    {
+        id:id,
+        permission:$('#'+id).val(),
+        _token: $('#_token').val(),
+    },
+    function(data, status){
+        console.log(data)
+    });  
+}
+
+function removeUser(id){
+    $.post("/removeUser",
+    {
+        id:id,
+        _token: $('#_token').val(),
+    },
+    function(data, status){
+        document.location.href="userAccount"
+    });  
+}
+function changeRole(){
+    console.log(realData)
+    $.post('changeRole',
+    {
+        roleData:realData,
+        _token: $('#_token').val(),
+
+    },
+    function(data, status){
+        console.log($.parseJSON(data))
+    }
+    )
 }
